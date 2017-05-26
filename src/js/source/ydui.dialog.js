@@ -72,7 +72,9 @@
 
             // 给对应按钮添加点击事件
             (function (p) {
-                $btn.on('click', function () {
+                $btn.on('click', function (e) {
+                    e.stopPropagation();
+
                     // 是否保留弹窗
                     if (!btnArr[p].stay) {
                         // 释放页面滚动
@@ -244,21 +246,8 @@
                 var $dom = $('' +
                     '<div class="mask-white-dialog" id="' + ID + '">' +
                     '   <div class="m-loading">' +
-                    '       <div class="loading-hd">' +
-                    '           <div class="loading-leaf loading-leaf-0"></div>' +
-                    '           <div class="loading-leaf loading-leaf-1"></div>' +
-                    '           <div class="loading-leaf loading-leaf-2"></div>' +
-                    '           <div class="loading-leaf loading-leaf-3"></div>' +
-                    '           <div class="loading-leaf loading-leaf-4"></div>' +
-                    '           <div class="loading-leaf loading-leaf-5"></div>' +
-                    '           <div class="loading-leaf loading-leaf-6"></div>' +
-                    '           <div class="loading-leaf loading-leaf-7"></div>' +
-                    '           <div class="loading-leaf loading-leaf-8"></div>' +
-                    '           <div class="loading-leaf loading-leaf-9"></div>' +
-                    '           <div class="loading-leaf loading-leaf-10"></div>' +
-                    '           <div class="loading-leaf loading-leaf-11"></div>' +
-                    '       </div>' +
-                    '       <p class="loading-txt">' + (text || '数据加载中') + '</p>' +
+                    '       <div class="loading-icon"></div>' +
+                    '       <div class="loading-txt">' + (text || '数据加载中') + '</div>' +
                     '   </div>' +
                     '</div>').remove();
 
